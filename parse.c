@@ -3,6 +3,8 @@
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <unistd.h>
+#define __STDC_FORMAT_MACROS
+#include <inttypes.h>
 #include <stdio.h>
 #include <endian.h>
 #include <errno.h>
@@ -34,7 +36,7 @@ static void print_radiotap_namespace(struct ieee80211_radiotap_iterator *iter)
 {
 	switch (iter->this_arg_index) {
 	case IEEE80211_RADIOTAP_TSFT:
-		printf("\tTSFT: %llu\n", le64toh(*(unsigned long long *)iter->this_arg));
+		printf("\tTSFT: %"PRIu64"\n", le64toh(*(unsigned long long *)iter->this_arg));
 		break;
 	case IEEE80211_RADIOTAP_FLAGS:
 		printf("\tflags: %02x\n", *iter->this_arg);
