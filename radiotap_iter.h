@@ -62,12 +62,12 @@ struct ieee80211_radiotap_vendor_namespaces {
  */
 
 struct ieee80211_radiotap_iterator {
-	struct ieee80211_radiotap_header *_rtheader;
+	const struct ieee80211_radiotap_header *_rtheader;
 	const struct ieee80211_radiotap_vendor_namespaces *_vns;
 	const struct ieee80211_radiotap_namespace *current_namespace;
 
 	unsigned char *_arg, *_next_ns_data;
-	uint32_t *_next_bitmap;
+	const uint32_t *_next_bitmap;
 
 	unsigned char *this_arg;
 	const struct radiotap_override *overrides;	/* Only for RADIOTAP_SUPPORT_OVERRIDES */
@@ -91,7 +91,7 @@ struct ieee80211_radiotap_iterator {
 
 extern CALLING_CONVENTION int ieee80211_radiotap_iterator_init(
 	struct ieee80211_radiotap_iterator *iterator,
-	struct ieee80211_radiotap_header *radiotap_header,
+	const struct ieee80211_radiotap_header *radiotap_header,
 	int max_length, const struct ieee80211_radiotap_vendor_namespaces *vns);
 
 extern CALLING_CONVENTION int ieee80211_radiotap_iterator_next(

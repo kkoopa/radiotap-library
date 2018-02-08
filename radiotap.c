@@ -89,7 +89,7 @@ static const struct ieee80211_radiotap_namespace radiotap_ns = {
 
 int ieee80211_radiotap_iterator_init(
 	struct ieee80211_radiotap_iterator *iterator,
-	struct ieee80211_radiotap_header *radiotap_header,
+	const struct ieee80211_radiotap_header *radiotap_header,
 	int max_length, const struct ieee80211_radiotap_vendor_namespaces *vns)
 {
 	/* must at least have the radiotap header */
