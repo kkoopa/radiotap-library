@@ -6,3 +6,5 @@ build
 CMakeCache.txt
 CMakeFiles
 cmake_install.cmake
+.deps
+.dirstamp
